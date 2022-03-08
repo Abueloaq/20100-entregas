@@ -2,7 +2,7 @@
 // Un poco de buena suerte nunca viene mal
 console.log(`Hola mundo`)
 
-//const monedasAceptadas = [`USDT`, `BTC`, `LUNA`]
+const monedasAceptadas = [`USDT`, `BTC`, `LUNA`]
 
 const wallet1 = new WALLET (`Jorge Willebald`, 13, 5, 500)
 //wallet1.comprarMoneda();
@@ -18,8 +18,7 @@ function WALLET(usuario, saldoBitcoin = 0, saldoLuna = 0, saldoUsdt = 0) {
         let currency = prompt(`Ingrese moneda a comprar`).toUpperCase();
         let compraMoneda = 0
         
-        //if (monedasAceptadas.includes(currency)) {
-        if ((currency === `USDT`) || (currency === `BTC`) || (currency === `LUNA`)) {
+        if (monedasAceptadas.includes(currency)) {
             compraMoneda = Number(prompt(`Ingrese cantidad a comprar en ${currency}`));
         } else {
             currency = prompt(`Moneda ingresada inválida, por favor ingrese una de las siguientes: USDT, BTC, LUNA`)
@@ -42,8 +41,7 @@ function WALLET(usuario, saldoBitcoin = 0, saldoLuna = 0, saldoUsdt = 0) {
         let currency = prompt(`Ingrese moneda a transferir`).toUpperCase();
         let transfiereMoneda = 0
         
-        //if (monedasAceptadas.includes(currency)) {
-        if ((currency === `USDT`) || (currency === `BTC`) || (currency === `LUNA`)) {
+        if (monedasAceptadas.includes(currency)) {
             transfiereMoneda = Number(prompt(`Ingrese cantidad a transferir en ${currency}`));
         } else {
             currency = prompt(`Moneda ingresada inválida, por favor ingrese una de las siguientes: USDT, BTC, LUNA`)
@@ -75,7 +73,6 @@ function WALLET(usuario, saldoBitcoin = 0, saldoLuna = 0, saldoUsdt = 0) {
         console.log(`El saldo de ${wallet1.usuario} es: /${wallet1.saldoBitcoin} Bitcoin /${wallet1.saldoLuna} LUNA /${wallet1.saldoUsdt} USDT`);
     }
 }
-
 
 
 
