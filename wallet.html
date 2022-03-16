@@ -21,8 +21,8 @@
     <!-- awesome fontfamily -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 </head>
 <!-- body -->
 
@@ -100,17 +100,34 @@
                                         <div class="carousel-item active">
                                             <div class="container">
                                                 <div class="carousel-caption posi_in">
-                                                    <div class="row">
-                                                        <div class="col-md-9">
+                                                    <div class="column">
+                                                        <div class="">
                                                             <div class="testomoniam_text text_align_center">
                                                                 <h3>Jorge Willebald</h3>
-                                                                <span>Bitcoin  LUNA  USDT</span>
+                                                                <div class="row justify-content-around">
+                                                                    <div class="column">
+                                                                        <span>Bitcoin</span>
+                                                                        <div id="saldoBitcoinMostrado"></div>
+                                                                    </div>
+                                                                    <div class="column">
+                                                                        <span>LUNA</span>
+                                                                        <div id="saldoLunaMostrado"></div>
+                                                                    </div>
+                                                                    <div class="column">
+                                                                        <span>USDT</span>
+                                                                        <div id="saldoUsdtMostrado"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- <div class="row justify-content-center">
+                                                                    <p>Saldo en USD (fiat)</p>
+                                                                    <div id="saldoTotalUsd"></div>
+                                                                </div> -->
                                                                 <p>Selecciona la operación para continuar</p>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-3">
-                                                            <a class="read_more" href="javascript:wallet1.comprarMoneda()">Comprar</a>
-                                                            <a class="read_more" href="javascript:wallet1.transferirMoneda()">Transferir</a>
+                                                        <div class="">
+                                                            <a class="read_more" href="#comprarMoneda">Comprar</a>
+                                                            <a class="read_more" href="#transferirMoneda">Transferir</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -171,6 +188,41 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 testimonial" id="comprarMoneda">
+        <div class="border_testi">
+            <div class="titlepage text_align_center">
+                <h2>Comprar Crypto</h2>
+            </div>
+            <div>
+                <div class="d_flex flex-column">
+                    <p>Ingrese moneda a Comprar</p>
+                    <input type="text" id="monedaAComprar">
+                    <span id="monedaInvalida"></span>
+                    <p>Ingrese cantidad a Comprar</p>
+                    <input type="number" id="cantidadAComprar">
+                    <button type="reset" class="read_more mt-5" >Limpiar</button>
+                    <a class="read_more mt-5" href="javascript:wallet1.comprarMoneda()" >Comprar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 testimonial" id="transferirMoneda">
+        <div class="border_testi">
+            <div class="titlepage text_align_center">
+                <h2>Transferir Crypto</h2>
+            </div>
+            <div>
+                <div class="d_flex flex-column">
+                    <p>Ingrese moneda a Transferir</p>
+                    <input type="text" id="monedaATransferir">
+                    <p>Ingrese cantidad a Comprar</p>
+                    <input type="number" id="cantidadATransferir">
+                    <button type="reset" class="read_more mt-5" >Limpiar</button>
+                    <a class="read_more mt-5" href="javascript:wallet1.transferirMoneda()">Transferir</a>
                 </div>
             </div>
         </div>

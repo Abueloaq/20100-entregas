@@ -4,10 +4,25 @@ console.log(`Hola mundo`)
 
 const monedasAceptadas = [`USDT`, `BTC`, `LUNA`]
 
+const monedas = [
+    {id: `BTC`, name: `Bitcoin`, value: 38000},
+    {id: `LUNA`, name: `Luna`, value: 87},
+    {id: `USDT`, name: `Tether`, value: 1}
+];
+
 const wallet1 = new WALLET (`Jorge Willebald`, 13, 5, 500)
 //wallet1.comprarMoneda();
 //wallet1.transferirMoneda();
 
+//let saldoTotal = 0
+mostrarSaldos ();
+
+function mostrarSaldos () {
+    document.getElementById(`saldoBitcoinMostrado`).innerHTML = `<span>${wallet1.saldoBitcoin}</span>`;
+    document.getElementById(`saldoLunaMostrado`).innerHTML = `<span>${wallet1.saldoLuna}</span>`;
+    document.getElementById(`saldoUsdtMostrado`).innerHTML = `<span>${wallet1.saldoUsdt}</span>`;
+    //document.getElementById(`saldoTotalUsd`).innerHTML = `<span>${saldoTotal}</span>`;
+}
 
 function WALLET(usuario, saldoBitcoin = 0, saldoLuna = 0, saldoUsdt = 0) {
     this.usuario = usuario;
@@ -15,13 +30,13 @@ function WALLET(usuario, saldoBitcoin = 0, saldoLuna = 0, saldoUsdt = 0) {
     this.saldoLuna = saldoLuna;
     this.saldoUsdt = saldoUsdt;
     this.comprarMoneda = function () {
-        let currency = prompt(`Ingrese moneda a comprar`).toUpperCase();
+        let currency = document.getElementById(`monedaAComprar`).value.toUpperCase();
         let compraMoneda = 0
         
         if (monedasAceptadas.includes(currency)) {
-            compraMoneda = Number(prompt(`Ingrese cantidad a comprar en ${currency}`));
+            compraMoneda = Number(document.getElementById(`cantidadAComprar`).value);
         } else {
-            currency = prompt(`Moneda ingresada inválida, por favor ingrese una de las siguientes: USDT, BTC, LUNA`)
+            document.getElementById(`monedaInvalida`).innerHTML = `Monéda inválida, por favor ingrese una de las siguientes: BTC, Luna, USDT`;
         }
         
         switch (currency) {
@@ -35,16 +50,18 @@ function WALLET(usuario, saldoBitcoin = 0, saldoLuna = 0, saldoUsdt = 0) {
                 this.saldoUsdt += compraMoneda;
             break;
         }
-        console.log(`El saldo de ${wallet1.usuario} es: /${wallet1.saldoBitcoin} Bitcoin /${wallet1.saldoLuna} LUNA /${wallet1.saldoUsdt} USDT`);
+        mostrarSaldos ();
+        document.getElementById(`monedaAComprar`).innerHTML = ``;
+        //console.log(`El saldo de ${wallet1.usuario} es: /${wallet1.saldoBitcoin} Bitcoin /${wallet1.saldoLuna} LUNA /${wallet1.saldoUsdt} USDT`);
     }
     this.transferirMoneda = function () {
-        let currency = prompt(`Ingrese moneda a transferir`).toUpperCase();
+        let currency = document.getElementById(`monedaATransferir`).value.toUpperCase();
         let transfiereMoneda = 0
         
         if (monedasAceptadas.includes(currency)) {
-            transfiereMoneda = Number(prompt(`Ingrese cantidad a transferir en ${currency}`));
+            transfiereMoneda = Number(document.getElementById(`cantidadATransferir`).value);
         } else {
-            currency = prompt(`Moneda ingresada inválida, por favor ingrese una de las siguientes: USDT, BTC, LUNA`)
+            currency = alert(`Moneda ingresada inválida, por favor ingrese una de las siguientes: USDT, BTC, LUNA`)
         }
         
         switch (currency) {
@@ -70,10 +87,10 @@ function WALLET(usuario, saldoBitcoin = 0, saldoLuna = 0, saldoUsdt = 0) {
                 }
             break;
         }
-        console.log(`El saldo de ${wallet1.usuario} es: /${wallet1.saldoBitcoin} Bitcoin /${wallet1.saldoLuna} LUNA /${wallet1.saldoUsdt} USDT`);
+        mostrarSaldos ();
+        //console.log(`El saldo de ${wallet1.usuario} es: /${wallet1.saldoBitcoin} Bitcoin /${wallet1.saldoLuna} LUNA /${wallet1.saldoUsdt} USDT`);
     }
 }
-
 
 
 
