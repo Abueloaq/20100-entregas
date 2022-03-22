@@ -42,12 +42,18 @@ function WALLET(usuario, saldoBitcoin = 0, saldoLuna = 0, saldoUsdt = 0) {
         switch (currency) {
             case `BTC`:
                 this.saldoBitcoin += compraMoneda;
+                document.getElementById('wallet').scrollIntoView();
+                alert(`Saldo actualizado`)
             break;
             case `LUNA`:
                 this.saldoLuna += compraMoneda;
+                document.getElementById('wallet').scrollIntoView();
+                alert(`Saldo actualizado`)
             break;
             case `USDT`:
                 this.saldoUsdt += compraMoneda;
+                document.getElementById('wallet').scrollIntoView();
+                alert(`Saldo actualizado`)
             break;
         }
         mostrarSaldos ();
@@ -70,6 +76,8 @@ function WALLET(usuario, saldoBitcoin = 0, saldoLuna = 0, saldoUsdt = 0) {
                     alert(`Saldo insuficiente`)
                 } else {
                 this.saldoBitcoin -= transfiereMoneda;
+                document.getElementById('wallet').scrollIntoView();
+                alert(`Saldo actualizado`)
                 }
             break;
             case `LUNA`:
@@ -77,6 +85,8 @@ function WALLET(usuario, saldoBitcoin = 0, saldoLuna = 0, saldoUsdt = 0) {
                     alert(`Saldo insuficiente`)
                 } else {
                 this.saldoLuna -= transfiereMoneda;
+                document.getElementById('wallet').scrollIntoView();
+                alert(`Saldo actualizado`)
                 }
             break;
             case `USDT`:
@@ -84,6 +94,8 @@ function WALLET(usuario, saldoBitcoin = 0, saldoLuna = 0, saldoUsdt = 0) {
                     alert(`Saldo insuficiente`)
                 } else {
                 this.saldoUsdt -= transfiereMoneda;
+                document.getElementById('wallet').scrollIntoView();
+                alert(`Saldo actualizado`)
                 }
             break;
         }
@@ -91,6 +103,11 @@ function WALLET(usuario, saldoBitcoin = 0, saldoLuna = 0, saldoUsdt = 0) {
         //console.log(`El saldo de ${wallet1.usuario} es: /${wallet1.saldoBitcoin} Bitcoin /${wallet1.saldoLuna} LUNA /${wallet1.saldoUsdt} USDT`);
     }
 }
+
+
+////////////////////////////////////////////////////////////////////////
+
+
 
 
 

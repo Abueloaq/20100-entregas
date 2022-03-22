@@ -21,6 +21,10 @@ import Fonts
 basic 
 ---------------------------------------------------------------------*/
 
+html {
+     scroll-behavior: smooth;
+}
+
 body {
      color: #666666;
      font-size: 14px;
@@ -102,6 +106,7 @@ h6 a {
      text-decoration: none!important;
      opacity: 1
 }
+
 
 button:focus {
      outline: none;
