@@ -26,7 +26,7 @@
 </head>
 <!-- body -->
 
-<body class="main-layout">
+<body class="main-layout" id="capa-variable">
     <!-- loader  -->
     <div class="loader_bg">
         <div class="loader"><img src="images/loading.gif" alt="" /></div>
@@ -75,6 +75,7 @@
         </div>
     </header>
     <!-- end header -->
+
     <!-- testimonial -->
     <div class="testimonial">
         <div class="container-fluid">
@@ -87,6 +88,9 @@
                                     <h2>Wallet</h2>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-12 d_flex justify-content-center">
+                            <a class="read_more" id="personaliza" href="javascript:personalizarBilletera()">Personaliza tu billetera</a>
                         </div>
                         <div class="row d_flex">
                             <div class="col-md-10 offset-md-1">
@@ -118,10 +122,10 @@
                                                                         <div id="saldoUsdtMostrado"></div>
                                                                     </div>
                                                                 </div>
-                                                                <!-- <div class="row justify-content-center">
+                                                                <div class="column justify-content-center">
                                                                     <p>Saldo en USD (fiat)</p>
                                                                     <div id="saldoTotalUsd"></div>
-                                                                </div> -->
+                                                                </div>
                                                                 <p>Selecciona la operación para continuar</p>
                                                             </div>
                                                         </div>
@@ -218,7 +222,7 @@
                 <div class="d_flex flex-column">
                     <p>Ingrese moneda a Transferir</p>
                     <input type="text" id="monedaATransferir">
-                    <p>Ingrese cantidad a Comprar</p>
+                    <p>Ingrese cantidad a Transferir</p>
                     <input type="number" id="cantidadATransferir">
                     <button type="reset" class="read_more mt-5" >Limpiar</button>
                     <a class="read_more mt-5" href="javascript:wallet1.transferirMoneda()">Transferir</a>
@@ -267,10 +271,12 @@
       </footer>
       <!-- end footer -->
       <!-- Javascript files-->
-      <script src="js/main.js"></script>
-      <script src="js/jquery.min.js "></script>
-      <script src="js/bootstrap.bundle.min.js "></script>
-      <script src="js/jquery-3.0.0.min.js "></script>
-      <script src="js/custom.js "></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery.min.js "></script>
+    <script src="js/bootstrap.bundle.min.js "></script>
+    <script src="js/jquery-3.0.0.min.js "></script>
+    <script src="js/custom.js "></script>
+
    </body>
 </html>
