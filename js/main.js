@@ -60,42 +60,47 @@ function WALLET(usuario, saldoBitcoin = 0, saldoLuna = 0, saldoUsdt = 0) {
         let currency = document.getElementById(`monedaAComprar`).value.toUpperCase();
         let compraMoneda = 0
         
-        if (monedasAceptadas.includes(currency)) {
-            compraMoneda = Number(document.getElementById(`cantidadAComprar`).value);
-        } else {
-            document.getElementById(`monedaInvalida`).innerHTML = `Monéda inválida, por favor ingrese una de las siguientes: BTC, Luna, USDT`;
-        }
+        monedasAceptadas.includes(currency) ?  (compraMoneda = Number(document.getElementById(`cantidadAComprar`).value)) : (swal({ title: "Moneda Inválida",text: "Por favor ingrese una de las siguientes: USDT, BTC, LUNA", icon: "error", button: "Aceptar",}))
         
         switch (currency) {
             case `BTC`:
                 this.saldoBitcoin += compraMoneda;
-                swal({
-                    title: "Saldo Actualizado",
-                    icon: "success",
-                    button: "Aceptar",
-                });
+                Toastify({
+                    text: "Saldo Actualizado",
+                    offset: {
+                        x: 50,
+                        y: 50
+                        },
+                    duration: 3000
+                    }).showToast();
                 document.getElementById('wallet').scrollIntoView();
                 document.getElementById('monedaAComprar').value = ``;
                 document.getElementById('cantidadAComprar').value = ``;
             break;
             case `LUNA`:
                 this.saldoLuna += compraMoneda;
-                swal({
-                    title: "Saldo Actualizado",
-                    icon: "success",
-                    button: "Aceptar",
-                });
+                Toastify({
+                    text: "Saldo Actualizado",
+                    offset: {
+                        x: 50,
+                        y: 50
+                        },
+                    duration: 3000
+                    }).showToast();
                 document.getElementById('wallet').scrollIntoView();
                 document.getElementById('monedaAComprar').value = ``;
                 document.getElementById('cantidadAComprar').value = ``;
             break;
             case `USDT`:
                 this.saldoUsdt += compraMoneda;
-                swal({
-                    title: "Saldo Actualizado",
-                    icon: "success",
-                    button: "Aceptar",
-                });
+                Toastify({
+                    text: "Saldo Actualizado",
+                    offset: {
+                        x: 50,
+                        y: 50
+                        },
+                    duration: 3000
+                    }).showToast();
                 document.getElementById('wallet').scrollIntoView();
                 document.getElementById('monedaAComprar').value = ``;
                 document.getElementById('cantidadAComprar').value = ``;
@@ -108,11 +113,7 @@ function WALLET(usuario, saldoBitcoin = 0, saldoLuna = 0, saldoUsdt = 0) {
         let currency = document.getElementById(`monedaATransferir`).value.toUpperCase();
         let transfiereMoneda = 0
         
-        if (monedasAceptadas.includes(currency)) {
-            transfiereMoneda = Number(document.getElementById(`cantidadATransferir`).value);
-        } else {
-            currency = alert(`Moneda ingresada inválida, por favor ingrese una de las siguientes: USDT, BTC, LUNA`)
-        }
+        monedasAceptadas.includes(currency) ? (transfiereMoneda = Number(document.getElementById(`cantidadATransferir`).value)) : (swal({ title: "Moneda Inválida",text: "Por favor ingrese una de las siguientes: USDT, BTC, LUNA", icon: "error", button: "Aceptar",}))
         
         switch (currency) {
             case `BTC`:
@@ -124,11 +125,14 @@ function WALLET(usuario, saldoBitcoin = 0, saldoLuna = 0, saldoUsdt = 0) {
                     });
                 } else {
                 this.saldoBitcoin -= transfiereMoneda;
-                swal({
-                    title: "Saldo Actualizado",
-                    icon: "success",
-                    button: "Aceptar",
-                });
+                Toastify({
+                    text: "Saldo Actualizado",
+                    offset: {
+                        x: 50,
+                        y: 50
+                        },
+                    duration: 3000
+                    }).showToast();
                 document.getElementById('wallet').scrollIntoView();
                 document.getElementById('monedaATransferir').value = ``;
                 document.getElementById('cantidadATransferir').value = ``;
@@ -143,11 +147,14 @@ function WALLET(usuario, saldoBitcoin = 0, saldoLuna = 0, saldoUsdt = 0) {
                     })
                 } else {
                 this.saldoLuna -= transfiereMoneda;
-                swal({
-                    title: "Saldo Actualizado",
-                    icon: "success",
-                    button: "Aceptar",
-                });
+                Toastify({
+                    text: "Saldo Actualizado",
+                    offset: {
+                        x: 50,
+                        y: 50
+                        },
+                    duration: 3000
+                    }).showToast();
                 document.getElementById('wallet').scrollIntoView();
                 document.getElementById('monedaATransferir').value = ``;
                 document.getElementById('cantidadATransferir').value = ``;
@@ -162,11 +169,14 @@ function WALLET(usuario, saldoBitcoin = 0, saldoLuna = 0, saldoUsdt = 0) {
                     })
                 } else {
                 this.saldoUsdt -= transfiereMoneda;
-                swal({
-                    title: "Saldo Actualizado",
-                    icon: "success",
-                    button: "Aceptar",
-                });
+                Toastify({
+                    text: "Saldo Actualizado",
+                    offset: {
+                        x: 50,
+                        y: 50
+                        },
+                    duration: 3000
+                    }).showToast();
                 document.getElementById('wallet').scrollIntoView();
                 document.getElementById('monedaATransferir').value = ``;
                 document.getElementById('cantidadATransferir').value = ``;
