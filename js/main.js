@@ -1,6 +1,6 @@
 
 // Un poco de buena suerte nunca viene mal
-console.log(`Hola mundo`)
+console.log(`Hola mundo 2`)
 
 
 
@@ -33,7 +33,6 @@ const personalizarBilletera = function () {
     }else if (elemento.className == "main-layout-green"){
     elemento.className = "main-layout-red";
     localStorage.setItem("personalizado", `rojo`)
-    }else {
         elemento.className = "main-layout";
         localStorage.setItem("personalizado", `azul`);    
     }
