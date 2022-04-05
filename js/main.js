@@ -1,6 +1,6 @@
 
 // Un poco de buena suerte nunca viene mal
-console.log(`Hola mundo 2`)
+console.log(`Hola mundo`)
 
 
 
