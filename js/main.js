@@ -2,13 +2,31 @@
 // Un poco de buena suerte nunca viene mal
 console.log(`Hola mundo`)
 
+const KEYAPI = `5b49ef6e1625780dd5cf98781e9e012ba5297556`
 
+let cotizacionMonedas = [];
 
 const monedasAceptadas = [`BTC`, `LUNA`, `USDT`]
 
-const cotizacionMonedas = [46800, 94, 1];
-
 const wallet1 = new WALLET (`Jorge Willebald`, 3, 5, 500)
+
+const pedirCotizacion = async () => {
+    const resp = await fetch(`https://api.nomics.com/v1/currencies/ticker?key=${KEYAPI}&ids=BTC,LUNA,USDT`);
+    const data = await resp.json();
+    data.forEach((post) => {
+        cotizacionMonedas.push(Number(post.price))
+    })
+    function mostrarSaldos () {
+        document.getElementById(`saldoBitcoinMostrado`).innerHTML = `<span>${wallet1.saldoBitcoin}</span>`;
+        document.getElementById(`saldoLunaMostrado`).innerHTML = `<span>${wallet1.saldoLuna}</span>`;
+        document.getElementById(`saldoUsdtMostrado`).innerHTML = `<span>${wallet1.saldoUsdt}</span>`;
+        acumuladorSaldoTotal = (((cotizacionMonedas[0]) * (wallet1.saldoBitcoin)) + ((cotizacionMonedas[1]) * (wallet1.saldoLuna)) + ((cotizacionMonedas[2]) * (wallet1.saldoUsdt)));
+        document.getElementById(`saldoTotalUsd`).innerHTML = `<span>${acumuladorSaldoTotal}</span>`;
+    }
+    mostrarSaldos ();
+}
+
+pedirCotizacion ();
 
 let elemento = document.getElementById("capa-variable");
 
@@ -39,8 +57,6 @@ const personalizarBilletera = function () {
 }
 
 let acumuladorSaldoTotal = 0;
-
-mostrarSaldos ();
 
 function mostrarSaldos () {
     document.getElementById(`saldoBitcoinMostrado`).innerHTML = `<span>${wallet1.saldoBitcoin}</span>`;
