@@ -49,7 +49,7 @@ const ingresarNuevoUsuario = function () {
 
 
 const pedirCotizacion = async () => {
-    const resp = await fetch(`https://api.nomics.com/v1/currencies/ticker?key=${KEYAPI}&ids=BTC,LUNA,USDT`);
+    const resp = await fetch(`https://api.nomics.com/v1/currencies/ticker?key=${KEYAPI}&ids=BTC,LUNA,USDT`, {mode: 'no-cors'});
     const data = await resp.json();
     data.forEach((post) => {
         cotizacionMonedas.push(Number(post.price))
