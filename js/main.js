@@ -150,15 +150,13 @@ const displayBody = (value) => {
 
 const comprarTrue = () => {
     wallet1.comprarMoneda();
-    document.getElementById('capa-variable').scrollIntoView();
-    let divWallet = document.getElementById("wallet");
-    let divPagar = document.getElementById("pagarMoneda") 
     divWallet.className = "row"
     divPagar.className = "col-md-12 testimonial noDisplay"
 };
 
 
 let submitComprar = document.getElementById("form");
+
 submitComprar.addEventListener("submit", comprarTrue);
 
 
