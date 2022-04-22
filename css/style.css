@@ -131,7 +131,6 @@ h6 a {
      opacity: 1
 }
 
-
 button:focus {
      outline: none;
 }
@@ -170,6 +169,10 @@ a,
      transition: all .3s ease-in-out;
 }
 
+a span {
+     font-family: sans-serif;
+}
+
 img {
      max-width: 100%;
      height: auto;
@@ -177,6 +180,18 @@ img {
 
  :focus {
      outline: 0;
+}
+
+.noDisplay {
+     display: none !important;
+}
+
+.form-field {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     color:rgb(199, 199, 199);
+     padding-bottom: 0.5rem;
 }
 
 .btn-custom {
@@ -732,6 +747,7 @@ ul.email li i {
 
 .testomoniam_text h3 {
      margin-top: 24px;
+     margin-bottom: 24px;
      font-size: 17px;
      padding: 0;
      font-weight: bold;

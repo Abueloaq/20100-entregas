@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- responsive-->
     <link rel="stylesheet" href="css/responsive.css">
+    <!-- animation-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <!-- awesome fontfamily -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--[if lt IE 9]>
@@ -29,18 +31,14 @@
 
 <body class="main-layout" id="capa-variable">
     <!-- loader  -->
-    <div class="loader_bg">
+    <div id="loader" class="loader_bg">
         <div class="loader"><img src="images/loading.gif" alt="" /></div>
     </div>
     <!-- end loader -->
     <div id="mySidepanel" class="sidepanel">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
         <a href="index.html">Inicio</a>
-        <a href="about.html">Quienes Somos</a>
-        <a href="searvices.html">Servicios</a>
         <a class="active" href="wallet.html">Wallet</a>
-        <a href="works.html">Tutoriales</a>
-        <a href="contact.html">Contacto</a>
     </div>
     <!-- header -->
     <header>
@@ -56,16 +54,12 @@
                     <div class="col-sm-5">
                         <ul class="social_icon text_align_right d_none">
                             <li> <a href="Javascript:void(0)"><i class="fa fa-facebook-f"></i></a></li>
-                            <li> <a href="Javascript:void(0)"><i class="fa fa-twitter"></i></a></li>
-                            <li> <a href="Javascript:void(0)"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                             <li> <a href="Javascript:void(0)"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            <li> <a href="Javascript:void(0)"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                     <div class="col-sm-4">
                         <ul class="email text_align_right">
-                            <li class="d_none"><a href="Javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                            <li class="d_none"> <a href="Javascript:void(0)"><i class="fa fa-search" style="cursor: pointer;" aria-hidden="true"></i></a> </li>
+                            <li class="d_none"><a href="Javascript:displayBody(value = `usuario`)"><i class="fa fa-user" aria-hidden="true"><span id="sesionMarcada">  Registrate o Inicia Sesión</span></i></a></li>
                             <li>
                                 <button class="openbtn" onclick="openNav()"><img src="images/menu_btn.png"></button>
                             </li>
@@ -80,8 +74,8 @@
     <!-- testimonial -->
     <div class="testimonial">
         <div class="container-fluid">
-            <div class="row" id="wallet">
-                <div class="col-md-12">
+            <div class="row noDisplay" id="wallet">
+                <div class="col-md-12 animate__animated animate__fadeIn">
                     <div class="border_testi">
                         <div class="row">
                             <div class="col-md-12">
@@ -96,11 +90,6 @@
                         <div class="row d_flex">
                             <div class="col-md-10 offset-md-1">
                                 <div id="testimo" class="carousel slide our_testimonial" data-ride="carousel">
-                                    <!-- <ol class="carousel-indicators">
-                                        <li data-target="#testimo" data-slide-to="0" class="active"></li>
-                                        <li data-target="#testimo" data-slide-to="1"></li>
-                                        <li data-target="#testimo" data-slide-to="2"></li>
-                                    </ol> -->
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
                                             <div class="container">
@@ -108,7 +97,7 @@
                                                     <div class="column">
                                                         <div class="">
                                                             <div class="testomoniam_text text_align_center">
-                                                                <h3>Jorge Willebald</h3>
+                                                                <h3 id="usuarioMostrado"></h3>
                                                                 <div class="row justify-content-around">
                                                                     <div class="column">
                                                                         <span>Bitcoin</span>
@@ -131,56 +120,13 @@
                                                             </div>
                                                         </div>
                                                         <div class="">
-                                                            <a class="read_more" href="#comprarMoneda">Comprar</a>
-                                                            <a class="read_more" href="#transferirMoneda">Transferir</a>
+                                                            <a class="read_more" href="javascript:displayBody(value = `comprar`)">Comprar</a>
+                                                            <a class="read_more" href="javascript:displayBody(value = `transferir`)">Transferir</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!--<div class="carousel-item">
-                                            <div class="container">
-                                                <div class="carousel-caption posi_in">
-                                                    <div class="row">
-                                                        <div class="col-md-3">
-                                                            <div class="testomoniam_text text_align_center">
-                                                                <i><img src="images/clint.jpg" alt="#"/></i>
-                                                                <h3>MorGan Den</h3>
-                                                                <span>Bitcoin</span>
-                                                                <img src="images/icon.png" alt="#" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-9">
-                                                            <div class="testomoniam_text text_align_left">
-                                                                <p>more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and webmore-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and webmore-or-less normal distribution of</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <div class="container">
-                                                <div class="carousel-caption posi_in">
-                                                    <div class="row">
-                                                        <div class="col-md-3">
-                                                            <div class="testomoniam_text text_align_center">
-                                                                <i><img src="images/clint.jpg" alt="#"/></i>
-                                                                <h3>MorGan Den</h3>
-                                                                <span>Bitcoin</span>
-                                                                <img src="images/icon.png" alt="#" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-9">
-                                                            <div class="testomoniam_text text_align_left">
-                                                                <p>more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and webmore-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and webmore-or-less normal distribution of</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> -->
                                     <a class="carousel-control-prev" href="#testimo" role="button" data-slide="prev">
                                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                                         <span class="sr-only">Previous</span>
@@ -196,8 +142,26 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-12 testimonial" id="comprarMoneda">
-        <div class="border_testi">
+        <div class="col-md-12 testimonial" id="registroUsuario">
+            <div class="border_testi animate__animated animate__fadeIn">
+                <div class="titlepage text_align_center">
+                    <h2>Regístrate o Inicia Sesión</h2>
+                </div>
+                <div>
+                    <div class="d_flex flex-column">
+                        <p>Ingresa tu Usuario</p>
+                        <input type="text" id="nombreUsuario">
+                        <span id="monedaInvalida"></span>
+                        <p>Ingresa tu contraseña</p>
+                        <input type="password" id="passPersonal">
+                        <a class="read_more mt-5" href="javascript:displayBody(value = `cancelar`)">Cancelar</a>
+                        <a class="read_more mt-5" href="javascript:validarUsuario()" >Registrar-Iniciar Sesión</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        <div class="col-md-12 testimonial noDisplay" id="comprarMoneda">
+        <div class="border_testi animate__animated animate__fadeIn">
             <div class="titlepage text_align_center">
                 <h2>Comprar Crypto</h2>
             </div>
@@ -208,30 +172,81 @@
                     <span id="monedaInvalida"></span>
                     <p>Ingrese cantidad a Comprar</p>
                     <input type="number" id="cantidadAComprar">
-                    <button type="reset" class="read_more mt-5" >Limpiar</button>
-                    <a class="read_more mt-5" href="javascript:wallet1.comprarMoneda()" >Comprar</a>
+                    <a class="read_more mt-5" href="javascript:displayBody(value = `cancelar`)">Cancelar</a>
+                    <a class="read_more mt-5" href="javascript:displayBody(value = `pagar`)" >Comprar</a>
                 </div>
             </div>
         </div>
-        </div>
-        <div class="col-md-12 testimonial" id="transferirMoneda">
-        <div class="border_testi">
-            <div class="titlepage text_align_center">
-                <h2>Transferir Crypto</h2>
+        </div> 
+        <div class="col-md-12 testimonial noDisplay" id="pagarMoneda">
+            <div class="border_testi animate__animated animate__fadeIn">
+                <div class="titlepage text_align_center">
+                    <h2>Método de Pago</h2>
+                </div>
+                <form action="#" id="form">
+                    <div id="form-name" class="form-field">
+                        <label for="cc-name">Nombre completo:</label>
+                        <input id="cc-name" type="text" placeholder="Bruno Diaz" required>
+                    </div>
+
+                    <div id="form-card" class="form-field">
+                        <label for="cc-number">Número de Tarjeta:</label>
+                        <input id="cc-number" maxlength="16" minlength="16" placeholder="1111 2222 3333 4444" required>
+                    </div>
+    
+                    <div id="form-date" class="form-field">
+                        <label for="expiry-month">Fecha de Expiración:</label>
+                        <div id="date-val">
+                            <select id="expiry-month" required>
+                                                                    <option id="trans-label_month" value="" default="default" selected="selected">Mes</option>
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="5">5</option>
+                                                                    <option value="6">6</option>
+                                                                    <option value="7">7</option>
+                                                                    <option value="8">8</option>
+                                                                    <option value="9">9</option>
+                                                                    <option value="10">10</option>
+                                                                    <option value="11">11</option>
+                                                                    <option value="12">12</option>
+                                                            </select>
+                            <select id="expiry-year" required>
+                                                                    <option id="trans-label_year" value="" default="" selected="selected">Año</option>
+                                                            <option value="2022">22</option><option value="2023">23</option><option value="2024">24</option><option value="2025">25</option><option value="2026">26</option><option value="2027">27</option><option value="2028">28</option><option value="2029">29</option><option value="2030">30</option><option value="2031">31</option><option value="2032">32</option><option value="2033">33</option><option value="2034">34</option><option value="2035">35</option><option value="2036">36</option><option value="2037">37</option><option value="2038">38</option><option value="2039">39</option><option value="2040">40</option><option value="2041">41</option><option value="2042">42</option><option value="2043">43</option><option value="2044">44</option><option value="2045">45</option><option value="2046">46</option><option value="2047">47</option></select>
+                        </div>
+                    </div>
+
+                    <div id="form-sec-code" class="form-field">
+                        <label for="sec-code">Código de Seguridad:</label>
+                        <input type="password" maxlength="3" minlength="3" placeholder="123" required>
+                    </div>
+                    <div class="d_flex flex-column">
+                        <a type="button" class="read_more mt-5" href="javascript:displayBody(value = `cancelar`)">Cancelar</a>
+                        <button type="submit" class="read_more mt-5">Comprar</button>
+                    </div>
+                </form>
             </div>
-            <div>
+        </div>   
+        <div class="col-md-12 testimonial noDisplay" id="transferirMoneda">
+            <div class="border_testi animate__animated animate__fadeIn">
+                <div class="titlepage text_align_center">
+                    <h2>Transferir Crypto</h2>
+                </div>
                 <div class="d_flex flex-column">
+                    <p>Ingrese Billetera Destino</p>
+                    <input type="text" id="billeteraDestino">
                     <p>Ingrese moneda a Transferir</p>
                     <input type="text" id="monedaATransferir">
                     <p>Ingrese cantidad a Transferir</p>
                     <input type="number" id="cantidadATransferir">
-                    <button type="reset" class="read_more mt-5" >Limpiar</button>
+                    <a type="reset" class="read_more mt-5" href="javascript:displayBody(value = `cancelar`)">Cancelar</a>
                     <a class="read_more mt-5" href="javascript:wallet1.transferirMoneda()">Transferir</a>
                 </div>
             </div>
         </div>
-        </div>
-        </div>
+    </div>
     </div>
     <!-- end testimonial -->
     <!-- footer -->
